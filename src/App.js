@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css'
+import { Route, Link, Routes } from 'react-router-dom';
+import PostTable from './components/PostTable';
+import PostDetails from './components/PostDetails';
+import Home from './components/Home';
+import BackupTableIcon from '@mui/icons-material/BackupTable';
+import CopyrightIcon from '@mui/icons-material/Copyright';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <div className='navbar'>
+        <Link to='/posttable'><BackupTableIcon/><span style={{margin:"10px"}}>PostTable</span></Link>
+
+      </div>
+
+      <Routes>
+      <Route path="/" element={<Home/>} />
+
+        <Route path="/posttable" element={<PostTable/>} />
+        <Route path="/postdetails" element={<PostDetails/>} />
+      </Routes>
+
+      
     </div>
   );
-}
+};
 
 export default App;
